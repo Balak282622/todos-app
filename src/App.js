@@ -3,13 +3,17 @@ import './App.css';
 import { Footer } from './Components/Footer';
 import { Header } from './Components/Header';
 import { Todos } from './Components/Todos';
+import React, { useState } from 'react'
+
 
 function App() {
 const handleDelete = (todo)=> {
   console.log('delete',todo)
+  setTodos(todos.filter((e)=>{
+    return e!==todo
+  }))
 }
-
-  let todos = [
+const [todos, setTodos] = useState( [
     {
       sno: 1,
       title: "Get Better Job",
@@ -25,7 +29,7 @@ const handleDelete = (todo)=> {
       title: "Get house",
       description: "to buy a new house, get more money"
     }
-  ]
+  ])
   return (
     <>
     <Header title="My Todos List" searchBar={false}/> 
