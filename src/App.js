@@ -5,27 +5,31 @@ import { Header } from './Components/Header';
 import { Todos } from './Components/Todos';
 
 function App() {
+const handleDelete = (todo)=> {
+  console.log('delete',todo)
+}
+
   let todos = [
     {
       sno: 1,
       title: "Get Better Job",
-      description: "Search for compitable job, apply and perform best in interview"
+      description: "for getting better job, work hard and learn new skills"
     },
     {
       sno: 2,
       title: "Get car",
-      description: "Get a better job and save more then get a car"
+      description: "to get a cae get a better job"
     },
     {
       sno: 3,
-      title: "Get PR",
-      description: "Get Better job and get PR"
+      title: "Get house",
+      description: "to buy a new house, get more money"
     }
   ]
   return (
     <>
     <Header title="My Todos List" searchBar={false}/> 
-    <Todos todos={todos}/>
+    <Todos todos={todos} handleDelete={handleDelete}/>
     <Footer/>
     </>
   );
