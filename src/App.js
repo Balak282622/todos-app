@@ -4,6 +4,7 @@ import { Footer } from './Components/Footer';
 import { Header } from './Components/Header';
 import { Todos } from './Components/Todos';
 import React, { useState } from 'react'
+import { AddTodo } from './Components/AddTodo';
 
 
 function App() {
@@ -33,6 +34,7 @@ const [todos, setTodos] = useState( [
   return (
     <>
     <Header title="My Todos List" searchBar={false}/> 
+    <AddTodo/>
     <Todos todos={todos} handleDelete={handleDelete}/>
     <Footer/>
     </>
