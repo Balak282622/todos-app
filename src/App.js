@@ -4,6 +4,14 @@ import { Header } from "./Components/Header";
 import { Todos } from "./Components/Todos";
 import React, { useState, useEffect } from "react";
 import { AddTodo } from "./Components/AddTodo";
+import { About } from "./Components/About";
+// import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+  // Link
+} from "../node_modules/react-router-dom";
 
 function App() {
   let initTodo;
@@ -43,10 +51,27 @@ function App() {
   }, [todos]);
   return (
     <>
+    <Router>
+
       <Header title="My Todos List" searchBar={false} />
-      <AddTodo addTodo={addTodo} />
-      <Todos todos={todos} handleDelete={handleDelete} />
+      <Switch>
+          <Route exact path="/" render = {()=>{
+            return( 
+            <> 
+            <AddTodo addTodo={addTodo} />
+            <Todos todos={todos} handleDelete={handleDelete} />
+
+            </>)
+          }}>
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+        </Switch>
+
       <Footer />
+
+    </Router>
     </>
   );
 }
